@@ -7,7 +7,7 @@ include:
     shield: cradio_right
   - board: nice_nano//zmk
     shield: settings_reset
-  - board: nice_nano//zmk@2
-    shield: cradio_left
-  - board: nice_nano//zmk@2
-    shield: cradio_right
+  # - board: nice_nano//zmk@2
+  #   shield: cradio_left
+  # - board: nice_nano//zmk@2
+  #   shield: cradio_right
