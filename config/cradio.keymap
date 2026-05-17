@@ -272,7 +272,7 @@
             >;
         };
     };
-};
+
 
     // Layer 1 (RIGHT) + Layer 2 (LEFT) at the same time -> Layer 7 (TRI)
     conditional_layers {
@@ -282,3 +282,4 @@
             then-layer = <7>;
         };
     };
+};
