@@ -29,85 +29,102 @@
         m_enter {
             bindings = <&kp ENTER>;
             key-positions = <16 17 18>;
+            timeout-ms = <20>;
         };
 
         th {
             bindings = <&th>;
             key-positions = <12 13>;
+            timeout-ms = <20>;
         };
 
         left_par {
             bindings = <&kp LEFT_PARENTHESIS>;
             key-positions = <16 17>;
+            timeout-ms = <20>;
         };
 
         right_par {
             bindings = <&kp RIGHT_PARENTHESIS>;
             key-positions = <17 18>;
+            timeout-ms = <20>;
         };
 
         equals {
             bindings = <&kp EQUAL>;
             key-positions = <18 19>;
+            timeout-ms = <20>;
         };
 
         colon {
             bindings = <&kp COLON>;
             key-positions = <16 18>;
+            timeout-ms = <20>;
         };
 
         curvy {
             bindings = <&kp TILDE>;
             key-positions = <25 29>;
+            timeout-ms = <20>;
         };
 
         underscore {
             bindings = <&kp UNDER>;
             key-positions = <28 26>;
+            timeout-ms = <20>;
         };
 
         snabela {
             bindings = <&kp AT>;
             key-positions = <5 6>;
+            timeout-ms = <20>;
         };
 
         tab {
             bindings = <&kp TAB>;
             key-positions = <0 1>;
+            timeout-ms = <20>;
         };
 
         Stab {
             bindings = <&kp LS(TAB)>;
             key-positions = <0 1 2>;
+            timeout-ms = <20>;
         };
 
         space {
             bindings = <&kp SPACE>;
             key-positions = <13 14>;
+            timeout-ms = <20>;
         };
 
         escape {
             bindings = <&kp ESCAPE>;
             key-positions = <10 13>;
+            timeout-ms = <20>;
         };
 
         zed {
             bindings = <&kp Z>;
             key-positions = <11 13>;
+            timeout-ms = <20>;
         };
 
         excl {
             bindings = <&kp EXCLAMATION>;
             key-positions = <6 7>;
+            timeout-ms = <20>;
         };
 
         question {
             bindings = <&kp QUESTION>;
             key-positions = <7 8>;
+            timeout-ms = <20>;
         };
                 Backspace {
             bindings = <&kp BACKSPACE>;
             key-positions = <15 16>;
+            timeout-ms = <20>;
         };
     };
 
