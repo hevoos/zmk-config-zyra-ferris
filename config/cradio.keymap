@@ -15,8 +15,8 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <55>;
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
@@ -24,6 +24,7 @@
 
     combos {
         compatible = "zmk,combos";
+        timeout-ms = <20>;
 
         m_enter {
             bindings = <&kp ENTER>;
@@ -103,6 +104,10 @@
         question {
             bindings = <&kp QUESTION>;
             key-positions = <7 8>;
+        };
+                Backspace {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <15 16>;
         };
     };
 
@@ -263,8 +268,17 @@
 &studio_unlock  &studio_unlock  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &studio_unlock
 &sys_reset      &trans          &trans  &trans  &trans    &trans  &trans  &trans  &trans  &sys_reset
 &bootloader     &trans          &trans  &trans  &trans    &trans  &trans  &trans  &trans  &bootloader
-                                        &trans  &trans    &trans  &trans
+                                        &trans  &trans    &kp A  &trans
             >;
         };
     };
 };
+
+    // Layer 1 (RIGHT) + Layer 2 (LEFT) at the same time -> Layer 7 (TRI)
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <1 2>;
+            then-layer = <7>;
+        };
+    };
