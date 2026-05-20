@@ -251,7 +251,7 @@
         };
 
         slash {
-            bindings = <&kp slash>;
+            bindings = <&kp SLASH>;
             key-positions = <1 2 3>;
             timeout-ms = <20>;
         };
