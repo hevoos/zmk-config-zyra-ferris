@@ -249,6 +249,18 @@
             key-positions = <10 14>;
             timeout-ms = <20>;
         };
+
+        slash {
+            bindings = <&kp slash>;
+            key-positions = <1 2 3>;
+            timeout-ms = <20>;
+        };
+
+        hd_enter {
+            bindings = <&kp ENTER>;
+            key-positions = <24 25>;
+            timeout-ms = <20>;
+        };
     };
 
     macros {
