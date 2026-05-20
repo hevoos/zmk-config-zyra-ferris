@@ -171,7 +171,7 @@
             bindings = <&kp T>
             , <&macro_release &kp LSHFT>
             , <&macro_release &kp RSHFT>
-            , <&macro_tap &kp H>
+            , <&macro_tap &kp H>;
             label = "TH";
         };
 
