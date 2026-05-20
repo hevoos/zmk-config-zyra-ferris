@@ -258,7 +258,7 @@
 
         hd_enter {
             bindings = <&kp ENTER>;
-            key-positions = <24 25>;
+            key-positions = <23 24>;
             timeout-ms = <20>;
         };
     };
