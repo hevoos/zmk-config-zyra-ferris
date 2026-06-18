@@ -337,7 +337,7 @@
 
         hash {
             bindings = <&kp HASH>;
-            key-positions = <2 22>;
+            key-positions = <2 12>;
             timeout-ms = <30>;
             require-prior-idle-ms = <50>;
         };
@@ -366,6 +366,13 @@
         grave {
             bindings = <&kp GRAVE>;
             key-positions = <10 20>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <50>;
+        };
+
+        backslash {
+            bindings = <&kp BACKSLASH>;
+            key-positions = <12 22>;
             timeout-ms = <30>;
             require-prior-idle-ms = <50>;
         };
