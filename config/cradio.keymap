@@ -49,7 +49,7 @@
 
     combos {
         compatible = "zmk,combos";
-        timeout-ms = <20>;
+    //    timeout-ms = <20>;
 
         m_enter {
             bindings = <&kp ENTER>;
@@ -76,11 +76,11 @@
             timeout-ms = <20>;
         };
 
-        equals {
-            bindings = <&kp EQUAL>;
-            key-positions = <18 19>;
-            timeout-ms = <20>;
-        };
+        // equals {
+        //     bindings = <&kp EQUAL>;
+        //     key-positions = <18 19>;
+        //     timeout-ms = <20>;
+        // };
 
         colon {
             bindings = <&kp COLON>;
@@ -222,13 +222,13 @@
 
         undo {
             bindings = <&kp LC(Z)>;
-            key-positions = <20 21>;
+            key-positions = <20 21 22>;
             timeout-ms = <20>;
         };
 
         redo {
             bindings = <&kp LC(LS(Z))>;
-            key-positions = <20 21 22>;
+            key-positions = <20 21 22 23>;
             timeout-ms = <20>;
         };
 
@@ -383,45 +383,51 @@
         };
 
         Ill {
-            bindings = <&qu>;
+            bindings = <&Ill>;
             key-positions = <18 22>;
-            timeout-ms = <20>;
+            timeout-ms = <30>;
         };
 
         Ive {
-            bindings = <&qu>;
+            bindings = <&Ive>;
             key-positions = <18 24>;
-            timeout-ms = <20>;
+            timeout-ms = <30>;
         };
 
         Id {
-            bindings = <&qu>;
+            bindings = <&Id>;
             key-positions = <18 23>;
-            timeout-ms = <20>;
+            timeout-ms = <30>;
+        };
+
+        Im {
+            bindings = <&Im>;
+            key-positions = <2 18>;
+            timeout-ms = <30>;
         };
 
         youll {
-            bindings = <&qu>;
+            bindings = <&youll>;
             key-positions = <22 28>;
-            timeout-ms = <20>;
+            timeout-ms = <30>;
         };
 
         youve {
-            bindings = <&qu>;
+            bindings = <&youve>;
             key-positions = <24 28>;
-            timeout-ms = <20>;
+            timeout-ms = <30>;
         };
 
         youd {
-            bindings = <&qu>;
+            bindings = <&youd>;
             key-positions = <23 28>;
-            timeout-ms = <20>;
+            timeout-ms = <30>;
         };
 
         your {
             bindings = <&your>;
             key-positions = <28 30>;
-            timeout-ms = <20>;
+            timeout-ms = <30>;
         };
     };
 
@@ -617,6 +623,109 @@
             <&kp O &kp U &kp R>;
 
             label = "YOUR";
+        };
+
+        your: your {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+            <&kp Y>,
+            <&macro_release>,
+            <&kp LSHFT>,
+            <&macro_release>,
+            <&kp RSHFT>,
+            <&macro_tap>,
+            <&kp O &kp U &kp R>;
+
+            label = "YOUR";
+        };
+
+        Ill: Ill {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(I) &kp SQT &kp L &kp L &kp SPACE>;
+            label = "ILL";
+        };
+
+        Id: Id {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(I) &kp SQT &kp D &kp SPACE>;
+            label = "ID";
+        };
+
+        Im: Im {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(I) &kp SQT &kp M &kp SPACE>;
+            label = "IM";
+        };
+
+        Ive: Ive {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(I) &kp SQT &kp V &kp E &kp SPACE>;
+            label = "IVE";
+        };
+
+        youve: youve {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+            <&kp Y>,
+            <&macro_release>,
+            <&kp LSHFT>,
+            <&macro_release>,
+            <&kp RSHFT>,
+            <&macro_tap>,
+            <&kp O &kp U &kp APOSTROPHE &kp V &kp E &kp SPACE>;
+
+            label = "YOUVE";
+        };
+
+        youre: youre {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+            <&kp Y>,
+            <&macro_release>,
+            <&kp LSHFT>,
+            <&macro_release>,
+            <&kp RSHFT>,
+            <&macro_tap>,
+            <&kp O &kp U &kp APOSTROPHE &kp R &kp E &kp SPACE>;
+
+            label = "YOURE";
+        };
+
+        youd: youd {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+            <&kp Y>,
+            <&macro_release>,
+            <&kp LSHFT>,
+            <&macro_release>,
+            <&kp RSHFT>,
+            <&macro_tap>,
+            <&kp O &kp U &kp APOSTROPHE &kp D &kp SPACE>;
+
+            label = "YOUD";
+        };
+
+        youll: youll {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+            <&kp Y>,
+            <&macro_release>,
+            <&kp LSHFT>,
+            <&macro_release>,
+            <&kp RSHFT>,
+            <&macro_tap>,
+            <&kp O &kp U &kp APOSTROPHE &kp L &kp L &kp SPACE>;
+
+            label = "YOULL";
         };
     };
 
