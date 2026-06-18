@@ -32,7 +32,20 @@
             hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33>; // List of keys on the left side of the keyboard
             hold-trigger-on-release;
         };
+
+        // Trying to implement a sticky shift on tap, layer 1 on hold thing here.
+
+        lt_sk: layer_tap_sticky_shift {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            bindings = <&mo>, <&sk>;
+        };
     };
+
+    // Maybe add require-idle-ms 150 for horizontal combos and change timeout-ms to 30 for vertical and idle to 50 as per urob
 
     combos {
         compatible = "zmk,combos";
@@ -42,6 +55,7 @@
             bindings = <&kp ENTER>;
             key-positions = <16 17 18>;
             timeout-ms = <20>;
+            require-prior-idle-ms = <150>;
         };
 
         th {
@@ -154,7 +168,7 @@
 
         ing {
             bindings = <&ing>;
-            key-positions = <27 28>;
+            key-positions = <26 27 28>;
             timeout-ms = <20>;
         };
 
@@ -258,6 +272,102 @@
             bindings = <&kp SLASH>;
             key-positions = <1 2 3>;
             timeout-ms = <20>;
+        };
+
+        altslash {
+            bindings = <&kp SLASH>;
+            key-positions = <17 27>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <50>;
+        };
+
+        pipe {
+            bindings = <&kp PIPE>;
+            key-positions = <18 28>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <50>;
+        };
+
+        plus {
+            bindings = <&kp PLUS>;
+            key-positions = <6 16>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <50>;
+        };
+
+        minus {
+            bindings = <&kp MINUS>;
+            key-positions = <16 26>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <50>;
+        };
+
+        asterix {
+            bindings = <&kp ASTRK>;
+            key-positions = <7 17>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <50>;
+        };
+
+        andthen {
+            bindings = <&kp AMPS>;
+            key-positions = <8 18>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <50>;
+        };
+
+        lbracket {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <26 27>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <50>;
+        };
+
+        rbracket {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <27 28>;
+            timeout-ms = <20>;
+        };
+
+        del {
+            bindings = <&kp DELETE>;
+            key-positions = <18 19>;
+            timeout-ms = <20>;
+        };
+
+        hash {
+            bindings = <&kp HASH>;
+            key-positions = <2 22>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <50>;
+        };
+
+        dollar {
+            bindings = <&kp DOLLAR>;
+            key-positions = <3 13>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <50>;
+        };
+
+        equality {
+            bindings = <&kp EQUAL>;
+            key-positions = <13 23>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <50>;
+        };
+
+        porciento {
+            bindings = <&kp PERCENT>;
+            key-positions = <0 10>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <50>;
+        };
+
+        grave {
+            bindings = <&kp GRAVE>;
+            key-positions = <10 20>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <50>;
         };
 
         hd_enter {
@@ -518,7 +628,7 @@
             &kp X            &kp G        &kp M              &kp P                &kp J      &kp APOS     &ae_umlaut           &kp DOT             &kp COMMA    &kp MINUS
             &hml LEFT_GUI S  &hml LALT C  &hml LEFT_SHIFT N  &hml LEFT_CONTROL T  &kp K      &aa_umlaut   &hmr LEFT_CONTROL A  &hmr RIGHT_SHIFT E  &hmr LALT I  &hmr LEFT_GUI H
             &kp W            &kp F        &kp L              &kp D                &kp V      &oe_umlaut   &kp U                &kp O               &kp Y        &kp B
-            &lt 1 ENTER          &lt 2 R    &lt 3 SPACE  &lt 4 BACKSPACE
+            &lt_sk 1 LSHFT          &lt 2 R    &lt 3 SPACE  &lt 4 BACKSPACE
             >;
         };
 
