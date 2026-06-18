@@ -509,10 +509,10 @@
 
         layer_0 {
             bindings = <
-            &kp X         &kp G        &kp M        &kp P         &kp J      &kp APOS     &ae_umlaut       &kp DOT      &kp COMMA    &kp MINUS
-            &hml LCTRL S  &hml LALT C  &hml LGUI N  &hml LSHFT T  &kp K      &aa_umlaut   &hmr RSHFT A     &hmr LGUI E  &hmr LALT I  &hmr LCTRL H
-            &kp W         &kp F        &kp L        &kp D         &kp V      &oe_umlaut   &kp U            &kp O        &kp Y        &kp B
-            &lt 1 ENTER   &lt 2 R    &lt 3 SPACE  &lt 4 BACKSPACE
+            &kp X            &kp G        &kp M              &kp P                &kp J      &kp APOS     &ae_umlaut           &kp DOT             &kp COMMA    &kp MINUS
+            &hml LEFT_GUI S  &hml LALT C  &hml LEFT_SHIFT N  &hml LEFT_CONTROL T  &kp K      &aa_umlaut   &hmr LEFT_CONTROL A  &hmr RIGHT_SHIFT E  &hmr LALT I  &hmr LEFT_GUI H
+            &kp W            &kp F        &kp L              &kp D                &kp V      &oe_umlaut   &kp U                &kp O               &kp Y        &kp B
+            &lt 1 ENTER          &lt 2 R    &lt 3 SPACE  &lt 4 BACKSPACE
             >;
         };
 
