@@ -625,21 +625,6 @@
             label = "YOUR";
         };
 
-        your: your {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-            <&kp Y>,
-            <&macro_release>,
-            <&kp LSHFT>,
-            <&macro_release>,
-            <&kp RSHFT>,
-            <&macro_tap>,
-            <&kp O &kp U &kp R>;
-
-            label = "YOUR";
-        };
-
         Ill: Ill {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
