@@ -47,16 +47,6 @@
 
         // Trying to implement a sticky shift on tap, layer 1 on hold thing here.
 
-        // lt_sk: layer_tap_sticky_shift {
-        //     compatible = "zmk,behavior-hold-tap";
-        //     #binding-cells = <2>;
-        //     flavor = "balanced";
-        //     tapping-term-ms = <200>;
-        //     quick-tap-ms = <175>;
-        //     bindings = <&mo>, <&sk>;
-        // };
-
-        //Changing flavor to tap prefered might resolve sticky key issue of shifting two keys when tapped quickly in a row.
         lt_sk: layer_tap_sticky_shift {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -66,14 +56,183 @@
             bindings = <&mo>, <&sk>;
         };
 
+        // Comma Magic test: typing comma then G capitalizes it (deletes the comma)
         ak_g: ak_g {
             compatible = "zmk,behavior-adaptive-key";
             #binding-cells = <0>;
-            bindings = <&kp G>;  // default behavior: just types "g"
+            bindings = <&kp G>;
 
             akt_comma_g {
                 trigger-keys = <COMMA>;
-                bindings = <&kp BSPC &kp LS(G)>;  // backspace the comma, then type capital G
+                bindings = <&kp BSPC &kp LS(G)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_x: ak_x {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp X>;
+
+            akt_comma_x {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(X)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_m: ak_m {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp M>;
+
+            akt_comma_m {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(M)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_p: ak_p {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp P>;
+
+            akt_comma_p {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(P)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_j: ak_j {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp J>;
+
+            akt_comma_j {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(J)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_w: ak_w {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp W>;
+
+            akt_comma_w {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(W)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_f: ak_f {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp F>;
+
+            akt_comma_f {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(F)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_l: ak_l {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp L>;
+
+            akt_comma_l {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(L)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_d: ak_d {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp D>;
+
+            akt_comma_d {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(D)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_v: ak_v {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp V>;
+
+            akt_comma_v {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(V)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_u: ak_u {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp U>;
+
+            akt_comma_u {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(U)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_o: ak_o {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp O>;
+
+            akt_comma_o {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(O)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_y: ak_y {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp Y>;
+
+            akt_comma_y {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(Y)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_b: ak_b {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp B>;
+
+            akt_comma_b {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(B)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_k: ak_k {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp K>;
+
+            akt_comma_k {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(K)>;
                 max-prior-idle-ms = <500>;
             };
         };
@@ -847,9 +1006,9 @@
 
         layer_0 {
             bindings = <
-            &kp X            &ak_g        &kp M              &kp P                &kp J      &kp APOS     &ae_umlaut           &kp DOT             &kp COMMA    &kp MINUS
-            &hml LEFT_GUI S  &hml LALT C  &hml LEFT_SHIFT N  &hml LEFT_CONTROL T  &kp K      &aa_umlaut   &hmr LEFT_CONTROL A  &hmr RIGHT_SHIFT E  &hmr LALT I  &hmr LEFT_GUI H
-            &kp W            &kp F        &kp L              &kp D                &kp V      &oe_umlaut   &kp U                &kp O               &kp Y        &kp B
+            &ak_x            &ak_g        &ak_m              &ak_p                &ak_j      &kp APOS     &ae_umlaut           &kp DOT             &kp COMMA    &kp MINUS
+            &hml LEFT_GUI S  &hml LALT C  &hml LEFT_SHIFT N  &hml LEFT_CONTROL T  &ak_k      &aa_umlaut   &hmr LEFT_CONTROL A  &hmr RIGHT_SHIFT E  &hmr LALT I  &hmr LEFT_GUI H
+            &ak_w            &ak_f        &ak_l              &ak_d                &ak_v      &oe_umlaut   &ak_u                &ak_o               &ak_y        &ak_b
             &lt_sk 1 LSHFT          &lt 2 R    &lt 3 SPACE  &lt 4 BACKSPACE
             >;
         };
