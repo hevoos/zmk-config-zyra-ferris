@@ -5,6 +5,13 @@
 
 // Using Urob's timeless homerow mods
 
+// Trying to make sure that sticky shift only shifts one key after being pressed.
+
+&sk {
+    release-after-ms = <1000>;
+    quick-release;
+};
+
 // Faster mouse movements
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
@@ -36,13 +43,6 @@
 
             hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33>; // List of keys on the left side of the keyboard
             hold-trigger-on-release;
-        };
-
-        // Trying to make sure that sticky shift only shifts one key after being pressed.
-
-        &sk {
-            release-after-ms = <1000>;
-            quick-release;
         };
 
         // Trying to implement a sticky shift on tap, layer 1 on hold thing here.
