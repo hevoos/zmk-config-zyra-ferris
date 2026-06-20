@@ -86,6 +86,42 @@
             };
         };
 
+        ak_hml_c: ak_hml_c {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&hml LALT C>;
+
+            akt_comma_c {
+                trigger-keys = <COMMA>;
+                bindings = <&hml_cap LALT LS(C)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_hml_n: ak_hml_n {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&hml LEFT_SHIFT N>;
+
+            akt_comma_n {
+                trigger-keys = <COMMA>;
+                bindings = <&hml_cap LEFT_SHIFT LS(N)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_hml_t: ak_hml_t {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&hml LEFT_CONTROL T>;
+
+            akt_comma_t {
+                trigger-keys = <COMMA>;
+                bindings = <&hml_cap LEFT_CONTROL LS(T)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
         // Comma Magic for homerow-mod A
         ak_hmr_a: ak_hmr_a {
             compatible = "zmk,behavior-adaptive-key";
@@ -95,6 +131,42 @@
             akt_comma_a2 {
                 trigger-keys = <COMMA>;
                 bindings = <&hmr_cap LEFT_CONTROL LS(A)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_hmr_e: ak_hmr_e {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&hmr RIGHT_SHIFT E>;
+
+            akt_comma_e {
+                trigger-keys = <COMMA>;
+                bindings = <&hmr_cap RIGHT_SHIFT LS(E)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_hmr_i: ak_hmr_i {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&hmr LALT I>;
+
+            akt_comma_i {
+                trigger-keys = <COMMA>;
+                bindings = <&hmr_cap LALT LS(I)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_hmr_h: ak_hmr_h {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&hmr LEFT_GUI H>;
+
+            akt_comma_h {
+                trigger-keys = <COMMA>;
+                bindings = <&hmr_cap LEFT_GUI LS(H)>;
                 max-prior-idle-ms = <500>;
             };
         };
@@ -1098,7 +1170,7 @@
         layer_0 {
             bindings = <
             &ak_x            &ak_g        &ak_m              &ak_p                &ak_j      &kp APOS     &ak_ae               &kp DOT             &kp COMMA    &kp MINUS
-            &ak_hml_s  &hml LALT C  &hml LEFT_SHIFT N  &hml LEFT_CONTROL T  &ak_k      &ak_aa       &ak_hmr_a  &hmr RIGHT_SHIFT E  &hmr LALT I  &hmr LEFT_GUI H
+            &ak_hml_s  &ak_hml_c  &ak_hml_n  &ak_hml_t  &ak_k      &ak_aa       &ak_hmr_a  &ak_hmr_e  &ak_hmr_i  &ak_hmr_h
             &ak_w            &ak_f        &ak_l              &ak_d                &ak_v      &ak_oe       &ak_u                &ak_o               &ak_y        &ak_b
             &lt_sk 1 LSHFT          &lt 2 R    &lt 3 SPACE  &lt 4 BACKSPACE
             >;
