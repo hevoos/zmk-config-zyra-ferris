@@ -895,7 +895,7 @@
             #binding-cells = <0>;
             tap-ms = <10>;
             bindings =
-            <&kp T>,
+            <&ak_t>,
             <&macro_release>,
             <&kp LSHFT>,
             <&macro_release>,
@@ -911,7 +911,7 @@
             #binding-cells = <0>;
             tap-ms = <10>;
             bindings =
-            <&kp C>,
+            <&ak_c>,
             <&macro_release>,
             <&kp LSHFT>,
             <&macro_release>,
@@ -927,7 +927,7 @@
             #binding-cells = <0>;
             tap-ms = <10>;
             bindings =
-            <&kp S>,
+            <&ak_s>,
             <&macro_release>,
             <&kp LSHFT>,
             <&macro_release>,
@@ -943,7 +943,7 @@
             #binding-cells = <0>;
             tap-ms = <10>;
             bindings =
-            <&kp T>,
+            <&ak_t>,
             <&macro_release>,
             <&kp LSHFT>,
             <&macro_release>,
@@ -959,7 +959,7 @@
             #binding-cells = <0>;
             tap-ms = <10>;
             bindings =
-            <&kp Q>,
+            <&ak_q>,
             <&macro_release>,
             <&kp LSHFT>,
             <&macro_release>,
@@ -975,7 +975,7 @@
             #binding-cells = <0>;
             tap-ms = <10>;
             bindings =
-            <&kp W>,
+            <&ak_w>,
             <&macro_release>,
             <&kp LSHFT>,
             <&macro_release>,
@@ -991,7 +991,7 @@
             #binding-cells = <0>;
             tap-ms = <10>;
             bindings =
-            <&kp S>,
+            <&ak_s>,
             <&macro_release>,
             <&kp LSHFT>,
             <&macro_release>,
@@ -1007,7 +1007,7 @@
             #binding-cells = <0>;
             tap-ms = <10>;
             bindings =
-            <&kp I>,
+            <&ak_i>,
             <&macro_release>,
             <&kp LSHFT>,
             <&macro_release>,
@@ -1031,7 +1031,7 @@
             #binding-cells = <0>;
             tap-ms = <10>;
             bindings =
-            <&kp G>,
+            <&ak_g>,
             <&macro_release>,
             <&kp LSHFT>,
             <&macro_release>,
@@ -1047,7 +1047,7 @@
             #binding-cells = <0>;
             tap-ms = <10>;
             bindings =
-            <&kp P>,
+            <&ak_p>,
             <&macro_release>,
             <&kp LSHFT>,
             <&macro_release>,
@@ -1092,7 +1092,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-            <&kp Y>,
+            <&ak_y>,
             <&macro_release>,
             <&kp LSHFT>,
             <&macro_release>,
@@ -1135,7 +1135,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-            <&kp Y>,
+            <&ak_y>,
             <&macro_release>,
             <&kp LSHFT>,
             <&macro_release>,
@@ -1150,7 +1150,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-            <&kp Y>,
+            <&ak_y>,
             <&macro_release>,
             <&kp LSHFT>,
             <&macro_release>,
@@ -1165,7 +1165,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-            <&kp Y>,
+            <&ak_y>,
             <&macro_release>,
             <&kp LSHFT>,
             <&macro_release>,
@@ -1180,7 +1180,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-            <&kp Y>,
+            <&ak_y>,
             <&macro_release>,
             <&kp LSHFT>,
             <&macro_release>,
