@@ -65,6 +65,18 @@
             require-prior-idle-ms = <150>;
             bindings = <&mo>, <&sk>;
         };
+
+        ak_g: ak_g {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp G>;  // default behavior: just types "g"
+
+            akt_comma_g {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(G)>;  // backspace the comma, then type capital G
+                max-prior-idle-ms = <500>;
+            };
+        };
     };
 
     // Maybe add require-idle-ms 150 for horizontal combos and change timeout-ms to 30 for vertical and idle to 50 as per urob
