@@ -236,6 +236,43 @@
                 max-prior-idle-ms = <500>;
             };
         };
+
+        // Comma Magic for umlaut macros: comma + umlaut produces the capitalized umlaut
+        ak_ae: ak_ae {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&ae_umlaut>;
+
+            akt_comma_ae {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp RA(LS(A))>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_aa: ak_aa {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&aa_umlaut>;
+
+            akt_comma_aa {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp RA(LS(W))>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_oe: ak_oe {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&oe_umlaut>;
+
+            akt_comma_oe {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp RA(LS(O))>;
+                max-prior-idle-ms = <500>;
+            };
+        };
     };
 
     // Maybe add require-idle-ms 150 for horizontal combos and change timeout-ms to 30 for vertical and idle to 50 as per urob
@@ -1006,9 +1043,9 @@
 
         layer_0 {
             bindings = <
-            &ak_x            &ak_g        &ak_m              &ak_p                &ak_j      &kp APOS     &ae_umlaut           &kp DOT             &kp COMMA    &kp MINUS
-            &hml LEFT_GUI S  &hml LALT C  &hml LEFT_SHIFT N  &hml LEFT_CONTROL T  &ak_k      &aa_umlaut   &hmr LEFT_CONTROL A  &hmr RIGHT_SHIFT E  &hmr LALT I  &hmr LEFT_GUI H
-            &ak_w            &ak_f        &ak_l              &ak_d                &ak_v      &oe_umlaut   &ak_u                &ak_o               &ak_y        &ak_b
+            &ak_x            &ak_g        &ak_m              &ak_p                &ak_j      &kp APOS     &ak_ae               &kp DOT             &kp COMMA    &kp MINUS
+            &hml LEFT_GUI S  &hml LALT C  &hml LEFT_SHIFT N  &hml LEFT_CONTROL T  &ak_k      &ak_aa       &hmr LEFT_CONTROL A  &hmr RIGHT_SHIFT E  &hmr LALT I  &hmr LEFT_GUI H
+            &ak_w            &ak_f        &ak_l              &ak_d                &ak_v      &ak_oe       &ak_u                &ak_o               &ak_y        &ak_b
             &lt_sk 1 LSHFT          &lt 2 R    &lt 3 SPACE  &lt 4 BACKSPACE
             >;
         };
