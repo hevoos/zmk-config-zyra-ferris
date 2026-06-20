@@ -847,7 +847,7 @@
 
         layer_0 {
             bindings = <
-            &kp X            &kp G        &kp M              &kp P                &kp J      &kp APOS     &ae_umlaut           &kp DOT             &kp COMMA    &kp MINUS
+            &kp X            &ak_g        &kp M              &kp P                &kp J      &kp APOS     &ae_umlaut           &kp DOT             &kp COMMA    &kp MINUS
             &hml LEFT_GUI S  &hml LALT C  &hml LEFT_SHIFT N  &hml LEFT_CONTROL T  &kp K      &aa_umlaut   &hmr LEFT_CONTROL A  &hmr RIGHT_SHIFT E  &hmr LALT I  &hmr LEFT_GUI H
             &kp W            &kp F        &kp L              &kp D                &kp V      &oe_umlaut   &kp U                &kp O               &kp Y        &kp B
             &lt_sk 1 LSHFT          &lt 2 R    &lt 3 SPACE  &lt 4 BACKSPACE
