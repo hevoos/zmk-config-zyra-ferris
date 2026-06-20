@@ -521,7 +521,7 @@
         th: th {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            tap-ms = 10
+            tap-ms = <10>;
             bindings =
             <&kp T>,
             <&macro_release>,
@@ -537,7 +537,7 @@
         ch: ch {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            tap-ms = 10
+            tap-ms = <10>;
             bindings =
             <&kp C>,
             <&macro_release>,
@@ -553,7 +553,7 @@
         sch: sch {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            tap-ms = 10
+            tap-ms = <10>;
             bindings =
             <&kp S>,
             <&macro_release>,
@@ -569,7 +569,7 @@
         tch: tch {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            tap-ms = 10
+            tap-ms = <10>;
             bindings =
             <&kp T>,
             <&macro_release>,
@@ -585,7 +585,7 @@
         qu: qu {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            tap-ms = 10
+            tap-ms = <10>;
             bindings =
             <&kp Q>,
             <&macro_release>,
@@ -601,7 +601,7 @@
         wh: wh {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            tap-ms = 10
+            tap-ms = <10>;
             bindings =
             <&kp W>,
             <&macro_release>,
@@ -617,7 +617,7 @@
         sh: sh {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            tap-ms = 10
+            tap-ms = <10>;
             bindings =
             <&kp S>,
             <&macro_release>,
@@ -633,7 +633,7 @@
         ing: ing {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            tap-ms = 10
+            tap-ms = <10>;
             bindings =
             <&kp I>,
             <&macro_release>,
@@ -649,7 +649,7 @@
         ion: ion {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            tap-ms = 10
+            tap-ms = <10>;
             bindings = <&kp I &kp O &kp N>;
             label = "ION";
         };
@@ -657,7 +657,7 @@
         gh: gh {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            tap-ms = 10
+            tap-ms = <10>;
             bindings =
             <&kp G>,
             <&macro_release>,
@@ -673,7 +673,7 @@
         ph: ph {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            tap-ms = 10
+            tap-ms = <10>;
             bindings =
             <&kp P>,
             <&macro_release>,
