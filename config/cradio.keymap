@@ -179,6 +179,18 @@
             };
         };
 
+        ak_q: ak_q {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp Q>;
+
+            akt_comma_q {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(Q)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
         ak_m: ak_m {
             compatible = "zmk,behavior-adaptive-key";
             #binding-cells = <0>;
@@ -680,6 +692,13 @@
             require-prior-idle-ms = <150>;
         };
 
+        q {
+            bindings = <&ak_q>;
+            key-positions = <9 19>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <50>;
+        };
+
         del {
             bindings = <&kp DELETE>;
             key-positions = <8 9>;
@@ -1086,7 +1105,7 @@
             #binding-cells = <0>;
             tap-ms = <10>;
             bindings =
-            <&ak_i>,
+            <&kp I>,
             <&macro_release>,
             <&kp LSHFT>,
             <&macro_release>,
