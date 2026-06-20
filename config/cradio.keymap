@@ -930,19 +930,6 @@
             };
         };
 
-        ak_w: ak_w {
-            compatible = "zmk,behavior-adaptive-key";
-            #binding-cells = <0>;
-            bindings = <&kp W>;
-
-            akt_w_comma {
-                trigger-keys = <COMMA>;
-                bindings = <&kp BSPC &kp LS(W)>;
-                max-prior-idle-ms = <500>;
-                strict-modifiers;
-            };
-        };
-
         ak_i: ak_i {
             compatible = "zmk,behavior-adaptive-key";
             #binding-cells = <0>;
