@@ -45,34 +45,6 @@
             hold-trigger-on-release;
         };
 
-        // Capital-letter variant of hml, used after a comma trigger
-        hml_cap: home_row_mod_left_cap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
-
-            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31>;
-            hold-trigger-on-release;
-        };
-
-        // Capital-letter variant of hmr, used after a comma trigger
-        hmr_cap: home_row_mod_right_cap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
-
-            hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33>;
-            hold-trigger-on-release;
-        };
-
         // Comma Magic for homerow-mod S: tap after comma = capital S, hold = mod (unaffected)
         ak_hml_s: ak_hml_s {
             compatible = "zmk,behavior-adaptive-key";
@@ -81,7 +53,7 @@
 
             akt_comma_s {
                 trigger-keys = <COMMA>;
-                bindings = <&hml_cap LEFT_GUI LS(S)>;
+                bindings = <&comma_cap_s>;
                 max-prior-idle-ms = <500>;
             };
         };
@@ -93,7 +65,7 @@
 
             akt_comma_c {
                 trigger-keys = <COMMA>;
-                bindings = <&hml_cap LALT LS(C)>;
+                bindings = <&comma_cap_c>;
                 max-prior-idle-ms = <500>;
             };
         };
@@ -105,7 +77,7 @@
 
             akt_comma_n {
                 trigger-keys = <COMMA>;
-                bindings = <&hml_cap LEFT_SHIFT LS(N)>;
+                bindings = <&comma_cap_n>;
                 max-prior-idle-ms = <500>;
             };
         };
@@ -117,7 +89,7 @@
 
             akt_comma_t {
                 trigger-keys = <COMMA>;
-                bindings = <&hml_cap LEFT_CONTROL LS(T)>;
+                bindings = <&comma_cap_t>;
                 max-prior-idle-ms = <500>;
             };
         };
@@ -130,7 +102,7 @@
 
             akt_comma_a2 {
                 trigger-keys = <COMMA>;
-                bindings = <&hmr_cap LEFT_CONTROL LS(A)>;
+                bindings = <&comma_cap_a>;
                 max-prior-idle-ms = <500>;
             };
         };
@@ -142,7 +114,7 @@
 
             akt_comma_e {
                 trigger-keys = <COMMA>;
-                bindings = <&hmr_cap RIGHT_SHIFT LS(E)>;
+                bindings = <&comma_cap_e>;
                 max-prior-idle-ms = <500>;
             };
         };
@@ -154,7 +126,7 @@
 
             akt_comma_i {
                 trigger-keys = <COMMA>;
-                bindings = <&hmr_cap LALT LS(I)>;
+                bindings = <&comma_cap_i>;
                 max-prior-idle-ms = <500>;
             };
         };
@@ -166,7 +138,7 @@
 
             akt_comma_h {
                 trigger-keys = <COMMA>;
-                bindings = <&hmr_cap LEFT_GUI LS(H)>;
+                bindings = <&comma_cap_h>;
                 max-prior-idle-ms = <500>;
             };
         };
@@ -841,6 +813,62 @@
     // Maybe add timing to digraph macros - tap-ms = 10 (is the value that HD creator uses.)
 
     macros {
+        comma_cap_s: comma_cap_s {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp LS(S)>;
+            label = "COMMA_CAP_S";
+        };
+
+        comma_cap_c: comma_cap_c {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp LS(C)>;
+            label = "COMMA_CAP_C";
+        };
+
+        comma_cap_n: comma_cap_n {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp LS(N)>;
+            label = "COMMA_CAP_N";
+        };
+
+        comma_cap_t: comma_cap_t {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp LS(T)>;
+            label = "COMMA_CAP_T";
+        };
+
+        comma_cap_a: comma_cap_a {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp LS(A)>;
+            label = "COMMA_CAP_A";
+        };
+
+        comma_cap_e: comma_cap_e {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp LS(E)>;
+            label = "COMMA_CAP_E";
+        };
+
+        comma_cap_i: comma_cap_i {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp LS(I)>;
+            label = "COMMA_CAP_I";
+        };
+
+        comma_cap_h: comma_cap_h {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp LS(H)>;
+            label = "COMMA_CAP_H";
+        };
+
         ae_umlaut: ae_umlaut {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
