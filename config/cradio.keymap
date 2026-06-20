@@ -38,6 +38,13 @@
             hold-trigger-on-release;
         };
 
+        // Trying to make sure that sticky shift only shifts one key after being pressed.
+
+        &sk {
+            release-after-ms = <1000>;
+            quick-release;
+        };
+
         // Trying to implement a sticky shift on tap, layer 1 on hold thing here.
 
         lt_sk: layer_tap_sticky_shift {
@@ -419,6 +426,18 @@
             timeout-ms = <20>;
         };
 
+        sch {
+            bindings = <&sch>;
+            key-positions = <10 11 12>;
+            timeout-ms = <20>;
+        };
+
+        tch {
+            bindings = <&tch>;
+            key-positions = <10 11 13>;
+            timeout-ms = <20>;
+        };
+
         Ill {
             bindings = <&Ill>;
             key-positions = <18 22>;
@@ -475,6 +494,8 @@
         };
     };
 
+    // Maybe add timing to digraph macros - tap-ms = 10 (is the value that HD creator uses.)
+
     macros {
         ae_umlaut: ae_umlaut {
             compatible = "zmk,behavior-macro";
@@ -500,6 +521,7 @@
         th: th {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            tap-ms = 10
             bindings =
             <&kp T>,
             <&macro_release>,
@@ -515,6 +537,7 @@
         ch: ch {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            tap-ms = 10
             bindings =
             <&kp C>,
             <&macro_release>,
@@ -527,9 +550,42 @@
             label = "CH";
         };
 
+        sch: sch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = 10
+            bindings =
+            <&kp S>,
+            <&macro_release>,
+            <&kp LSHFT>,
+            <&macro_release>,
+            <&kp RSHFT>,
+            <&macro_tap>,
+            <&kp C &kp H>;
+
+            label = "SCH";
+        };
+
+        tch: tch {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = 10
+            bindings =
+            <&kp T>,
+            <&macro_release>,
+            <&kp LSHFT>,
+            <&macro_release>,
+            <&kp RSHFT>,
+            <&macro_tap>,
+            <&kp C &kp H>;
+
+            label = "TCH";
+        };
+
         qu: qu {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            tap-ms = 10
             bindings =
             <&kp Q>,
             <&macro_release>,
@@ -545,6 +601,7 @@
         wh: wh {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            tap-ms = 10
             bindings =
             <&kp W>,
             <&macro_release>,
@@ -560,6 +617,7 @@
         sh: sh {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            tap-ms = 10
             bindings =
             <&kp S>,
             <&macro_release>,
@@ -575,6 +633,7 @@
         ing: ing {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            tap-ms = 10
             bindings =
             <&kp I>,
             <&macro_release>,
@@ -590,6 +649,7 @@
         ion: ion {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            tap-ms = 10
             bindings = <&kp I &kp O &kp N>;
             label = "ION";
         };
@@ -597,6 +657,7 @@
         gh: gh {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            tap-ms = 10
             bindings =
             <&kp G>,
             <&macro_release>,
@@ -612,6 +673,7 @@
         ph: ph {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            tap-ms = 10
             bindings =
             <&kp P>,
             <&macro_release>,
