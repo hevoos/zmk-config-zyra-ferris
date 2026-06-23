@@ -154,6 +154,16 @@
             bindings = <&mo>, <&sk>;
         };
 
+        // Layer-tap for R: hold = layer (param), tap = comma-aware R
+        lt_r: layer_tap_r {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <1>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <150>;
+            require-prior-idle-ms = <150>;
+            bindings = <&mo>, <&ak_r>;
+        };
+
         // Comma Magic test: typing comma then G capitalizes it (deletes the comma)
         ak_g: ak_g {
             compatible = "zmk,behavior-adaptive-key";
@@ -187,6 +197,18 @@
             akt_comma_q {
                 trigger-keys = <COMMA>;
                 bindings = <&kp BSPC &kp LS(Q)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_r: ak_r {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp R>;
+
+            akt_comma_r {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(R)>;
                 max-prior-idle-ms = <500>;
             };
         };
@@ -345,17 +367,6 @@
                 bindings = <&kp BSPC &kp LS(K)>;
                 max-prior-idle-ms = <500>;
             };
-
-            ak_r: ak_r {
-                compatible = "zmk,behavior-adaptive-key";
-                #binding-cells = <0>;
-                bindings = <&kp R>;
-
-                akt_comma_r {
-                    trigger-keys = <COMMA>;
-                    bindings = <&kp BSPC &kp LS(R)>;
-                    max-prior-idle-ms = <500>;
-                };
         };
 
         // Comma Magic for umlaut macros: comma + umlaut produces the capitalized umlaut
@@ -1309,7 +1320,7 @@
             &ak_x            &ak_g        &ak_m              &ak_p                &ak_j      &kp APOS     &ak_ae               &kp DOT             &kp COMMA    &kp MINUS
             &ak_hml_s  &ak_hml_c  &ak_hml_n  &ak_hml_t  &ak_k      &ak_aa       &ak_hmr_a  &ak_hmr_e  &ak_hmr_i  &ak_hmr_h
             &ak_w            &ak_f        &ak_l              &ak_d                &ak_v      &ak_oe       &ak_u                &ak_o               &ak_y        &ak_b
-            &lt_sk 1 LSHFT          &lt 2 ak_r    &lt 3 SPACE  &lt 4 BACKSPACE
+            &lt_sk 1 LSHFT          &lt_r 2    &lt 3 SPACE  &lt 4 BACKSPACE
             >;
         };
 
