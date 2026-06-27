@@ -143,16 +143,16 @@
             };
         };
 
-        // Trying to implement a sticky shift on tap, layer 1 on hold thing here.
-
-        lt_sk: layer_tap_sticky_shift {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <150>;
-            require-prior-idle-ms = <150>;
-            bindings = <&mo>, <&sk>;
-        };
+        // // Trying to implement a sticky shift on tap, layer 1 on hold thing here.
+        //
+        // lt_sk: layer_tap_sticky_shift {
+        //     compatible = "zmk,behavior-hold-tap";
+        //     #binding-cells = <2>;
+        //     flavor = "tap-preferred";
+        //     tapping-term-ms = <150>;
+        //     require-prior-idle-ms = <150>;
+        //     bindings = <&mo>, <&sk>;
+        // };
 
         // Layer-tap for R: hold = layer (param), tap = comma-aware R
         lt_r: layer_tap_r {
@@ -1320,7 +1320,7 @@
             &ak_x            &ak_g        &ak_m              &ak_p                &ak_j      &kp APOS     &ak_ae               &kp DOT             &kp COMMA    &kp MINUS
             &ak_hml_s  &ak_hml_c  &ak_hml_n  &ak_hml_t  &ak_k      &ak_aa       &ak_hmr_a  &ak_hmr_e  &ak_hmr_i  &ak_hmr_h
             &ak_w            &ak_f        &ak_l              &ak_d                &ak_v      &ak_oe       &ak_u                &ak_o               &ak_y        &ak_b
-            &lt_sk 1 LSHFT          &lt_r 2 R    &lt 3 SPACE  &lt 4 BACKSPACE
+            &lt 1 ENTER          &lt_r 2 R    &lt 3 SPACE  &lt 4 BACKSPACE
             >;
         };
 
