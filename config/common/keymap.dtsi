@@ -76,7 +76,7 @@
         ak_hml_n: ak_hml_n {
             compatible = "zmk,behavior-adaptive-key";
             #binding-cells = <0>;
-            bindings = <&hml LEFT_SHIFT N>;
+            bindings = <&hml LEFT_CONTROL N>;
 
             akt_comma_n {
                 trigger-keys = <COMMA>;
@@ -88,7 +88,7 @@
         ak_hml_t: ak_hml_t {
             compatible = "zmk,behavior-adaptive-key";
             #binding-cells = <0>;
-            bindings = <&hml LEFT_CONTROL T>;
+            bindings = <&hml LEFT_SHIFT T>;
 
             akt_comma_t {
                 trigger-keys = <COMMA>;
@@ -102,7 +102,7 @@
         ak_hmr_a: ak_hmr_a {
             compatible = "zmk,behavior-adaptive-key";
             #binding-cells = <0>;
-            bindings = <&hmr LEFT_CONTROL A>;
+            bindings = <&hmr LEFT_SHIFT A>;
 
             akt_comma_a2 {
                 trigger-keys = <COMMA>;
@@ -114,7 +114,7 @@
         ak_hmr_e: ak_hmr_e {
             compatible = "zmk,behavior-adaptive-key";
             #binding-cells = <0>;
-            bindings = <&hmr RIGHT_SHIFT E>;
+            bindings = <&hmr RIGHT_CONTROL E>;
 
             akt_comma_e {
                 trigger-keys = <COMMA>;
@@ -1326,7 +1326,7 @@
         layer_0 {
             bindings = <
   LAYOUT(
-    &ak_x,           &ak_g,           &ak_m,           &ak_p,           &ak_j,           &kp APOS,        &ak_ae,          &kp DOT,         &kp COMMA,       &kp MINUS,
+    &ak_x,           &ak_g,           &ak_m,           &ak_p,           &ak_j,           &kp APOS,        &ak_ae,          &kp COMMA,         &kp DOT,       &kp MINUS,
     &ak_hml_s,       &ak_hml_c,       &ak_hml_n,       &ak_hml_t,       &ak_k,           &ak_aa,          &ak_hmr_a,       &ak_hmr_e,       &ak_hmr_i,       &ak_hmr_h,
     &ak_w,           &ak_f,           &ak_l,           &ak_d,           &ak_v,           &ak_oe,          &ak_u,           &ak_o,           &ak_y,           &ak_b,
     &lt 1 BACKSPACE, &lt_r 2 R,       &lt 3 SPACE,     &lt 4 ENTER
