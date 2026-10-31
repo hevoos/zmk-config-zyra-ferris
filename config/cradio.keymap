@@ -43,7 +43,14 @@
             hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33>; // List of keys on the left side of the keyboard
             hold-trigger-on-release;
         };
-
+        // Make function to allow copy on tap and cut on hold
+        copy_cut: copy_cut {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+        };
         // Comma Magic for homerow-mod S: tap after comma = capital S, hold = mod (unaffected)
 
         ak_hml_s: ak_hml_s {
@@ -54,6 +61,18 @@
             akt_comma_s {
                 trigger-keys = <COMMA>;
                 bindings = <&comma_cap_s>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_hml_h: ak_hml_h {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&hml LEFT_SHIFT H>;
+
+            akt_comma_s {
+                trigger-keys = <COMMA>;
+                bindings = <&comma_cap_h>;
                 max-prior-idle-ms = <500>;
             };
         };
@@ -70,10 +89,34 @@
             };
         };
 
+        ak_hmr_c: ak_hmr_c {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&hmr LEFT_GUI C>;
+
+            akt_comma_c {
+                trigger-keys = <COMMA>;
+                bindings = <&comma_cap_c>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
         ak_hml_n: ak_hml_n {
             compatible = "zmk,behavior-adaptive-key";
             #binding-cells = <0>;
-            bindings = <&hml LEFT_SHIFT N>;
+            bindings = <&hml LEFT_CONTROL N>;
+
+            akt_comma_n {
+                trigger-keys = <COMMA>;
+                bindings = <&comma_cap_n>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_hml_np: ak_hml_np {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&hml LALT N>;
 
             akt_comma_n {
                 trigger-keys = <COMMA>;
@@ -85,6 +128,18 @@
         ak_hml_t: ak_hml_t {
             compatible = "zmk,behavior-adaptive-key";
             #binding-cells = <0>;
+            bindings = <&hml LEFT_SHIFT T>;
+
+            akt_comma_t {
+                trigger-keys = <COMMA>;
+                bindings = <&comma_cap_t>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_hml_tp: ak_hml_tp {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
             bindings = <&hml LEFT_CONTROL T>;
 
             akt_comma_t {
@@ -94,12 +149,32 @@
             };
         };
 
+        // Make two commas do CAPSWORD
+        ak_comma: ak_comma {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>;
+
+            akt_comma_caps {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &caps_word>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+        // Adding linger on mjagkij znak - tvjordij znak
+        linger: linger {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+        };
         // Comma Magic for homerow-mod A
 
         ak_hmr_a: ak_hmr_a {
             compatible = "zmk,behavior-adaptive-key";
             #binding-cells = <0>;
-            bindings = <&hmr LEFT_CONTROL A>;
+            bindings = <&hmr LEFT_SHIFT A>;
 
             akt_comma_a2 {
                 trigger-keys = <COMMA>;
@@ -111,7 +186,7 @@
         ak_hmr_e: ak_hmr_e {
             compatible = "zmk,behavior-adaptive-key";
             #binding-cells = <0>;
-            bindings = <&hmr RIGHT_SHIFT E>;
+            bindings = <&hmr RIGHT_CONTROL E>;
 
             akt_comma_e {
                 trigger-keys = <COMMA>;
@@ -144,16 +219,16 @@
             };
         };
 
-        // // Trying to implement a sticky shift on tap, layer 1 on hold thing here.
-        //
-        // lt_sk: layer_tap_sticky_shift {
-        //     compatible = "zmk,behavior-hold-tap";
-        //     #binding-cells = <2>;
-        //     flavor = "tap-preferred";
-        //     tapping-term-ms = <150>;
-        //     require-prior-idle-ms = <150>;
-        //     bindings = <&mo>, <&sk>;
-        // };
+        // Layer-tap with one-shot Shift on tap: tap = sticky shift, hold = layer (first parameter).
+        // Used on the Russian layer's left thumb key at position 30 (where Backspace sits on the base layer).
+        lt_sk: layer_tap_sticky_shift {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&sk>;
+        };
+
         // Layer-tap for R: hold = layer (param), tap = comma-aware R
 
         lt_r: layer_tap_r {
@@ -371,6 +446,31 @@
             };
         };
 
+        //Adding stuff needed for the Thornium layout
+        ak_h: ak_h {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&kp H>;
+
+            akt_comma_h_plain {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(H)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
+        ak_hmr_m: ak_hmr_m {
+            compatible = "zmk,behavior-adaptive-key";
+            #binding-cells = <0>;
+            bindings = <&hmr LEFT_GUI M>;
+
+            akt_comma_m_hmr {
+                trigger-keys = <COMMA>;
+                bindings = <&kp BSPC &kp LS(M)>;
+                max-prior-idle-ms = <500>;
+            };
+        };
+
         // Comma Magic for umlaut macros: comma + umlaut produces the capitalized umlaut
 
         ak_ae: ak_ae {
@@ -450,6 +550,15 @@
         //     timeout-ms = <20>;
         // };
 
+
+        acute {
+            bindings = <&kp RA(APOS)>;
+            key-positions = <1 11>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <50>;
+            layers = <0>;
+        };
+
         colon {
             bindings = <&kp COLON>;
             key-positions = <16 18>;
@@ -511,6 +620,7 @@
             key-positions = <11 13>;
             timeout-ms = <20>;
             require-prior-idle-ms = <150>;
+            layers = <0>;
         };
 
         excl {
@@ -522,6 +632,12 @@
         doubleq {
             bindings = <&kp DOUBLE_QUOTES>;
             key-positions = <6 8>;
+            timeout-ms = <20>;
+        };
+
+        semicolon {
+            bindings = <&kp SEMICOLON>;
+            key-positions = <3 4>;
             timeout-ms = <20>;
         };
 
@@ -541,46 +657,60 @@
             bindings = <&ion>;
             key-positions = <6 7 8>;
             timeout-ms = <20>;
+            layers = <0>;
         };
 
         ing {
             bindings = <&ing>;
             key-positions = <26 27 28>;
             timeout-ms = <20>;
+            layers = <0>;
         };
 
         gh {
             bindings = <&gh>;
-            key-positions = <1 2>;
+            key-positions = <2 3>;
             timeout-ms = <20>;
+            layers = <0>;
         };
 
         wh {
             bindings = <&wh>;
-            key-positions = <20 21>;
+            key-positions = <1 2>;
             timeout-ms = <20>;
+            layers = <0>;
         };
 
         sh {
             bindings = <&sh>;
             key-positions = <10 11>;
             timeout-ms = <20>;
+            layers = <0>;
         };
 
         ch {
             bindings = <&ch>;
             key-positions = <11 12>;
             timeout-ms = <20>;
+            layers = <0>;
         };
 
         ph {
             bindings = <&ph>;
+            key-positions = <20 21>;
+            timeout-ms = <20>;
+            layers = <0>;
+        };
+
+        tsya {
+            bindings = <&tsya>;
             key-positions = <21 23>;
+            layers = <1>;
             timeout-ms = <20>;
         };
 
         copy {
-            bindings = <&kp LC(C)>;
+            bindings = <&copy_cut LC(X) LC(C)>;
             key-positions = <21 22>;
             timeout-ms = <20>;
             require-prior-idle-ms = <150>;
@@ -732,13 +862,6 @@
             require-prior-idle-ms = <150>;
         };
 
-        semicolon {
-            bindings = <&kp SEMICOLON>;
-            key-positions = <3 4>;
-            timeout-ms = <20>;
-            require-prior-idle-ms = <150>;
-        };
-
         hash {
             bindings = <&kp HASH>;
             key-positions = <2 12>;
@@ -792,73 +915,121 @@
             bindings = <&qu>;
             key-positions = <1 3>;
             timeout-ms = <20>;
+            layers = <0>;
         };
 
         sch {
             bindings = <&sch>;
             key-positions = <10 11 12>;
             timeout-ms = <20>;
+            layers = <0>;
         };
 
         tch {
             bindings = <&tch>;
             key-positions = <10 11 13>;
             timeout-ms = <20>;
+            layers = <0>;
         };
 
         Ill {
             bindings = <&Ill>;
-            key-positions = <18 22>;
+            key-positions = <18 23>;
             timeout-ms = <30>;
+            layers = <0>;
         };
 
         Ive {
             bindings = <&Ive>;
-            key-positions = <18 24>;
+            key-positions = <0 18>;
             timeout-ms = <30>;
+            layers = <0>;
         };
 
         Id {
             bindings = <&Id>;
-            key-positions = <18 23>;
+            key-positions = <18 22>;
             timeout-ms = <30>;
+            layers = <0>;
         };
 
         Im {
             bindings = <&Im>;
-            key-positions = <2 18>;
-            timeout-ms = <30>;
+            key-positions = <3 18>;
+            timeout-ms = <20>;
+            require-prior-idle-ms = <150>;
+            layers = <0>;
         };
 
         Ime {
             bindings = <&kp LS(I)>;
-            key-positions = <18 19>;
+            key-positions = <2 18>;
             timeout-ms = <20>;
             require-prior-idle-ms = <150>;
+            layers = <0>;
         };
 
         youll {
             bindings = <&youll>;
-            key-positions = <22 28>;
+            key-positions = <23 28>;
             timeout-ms = <30>;
+            layers = <0>;
         };
 
         youve {
             bindings = <&youve>;
-            key-positions = <24 28>;
+            key-positions = <0 28>;
             timeout-ms = <30>;
+            layers = <0>;
         };
 
         youd {
             bindings = <&youd>;
-            key-positions = <23 28>;
+            key-positions = <22 28>;
             timeout-ms = <30>;
+            layers = <0>;
         };
 
         your {
             bindings = <&your>;
             key-positions = <28 30>;
             timeout-ms = <30>;
+            layers = <0>;
+        };
+
+        // Not needed here: Promethium is layer 0 on this board. If you restore the old base
+        // layer, re-add the toggle like this (and renumber the layers):
+        // promethium_toggle {
+        // bindings = <&tog 1>;
+        // key-positions = <1 8>;
+        // timeout-ms = <30>;
+        // require-prior-idle-ms = <150>;
+        // };
+
+        //Add layer toggle from Russian layer
+        russian_toggle {
+            bindings = <&tog 1>;
+            key-positions = <0 9>;
+            timeout-ms = <30>;
+            require-prior-idle-ms = <150>;
+        };
+
+        // Russian layer only: comma and dot on the top-row keys (this board has no outer pinky keys).
+        // On the Russian host layout the dot is the slash key and the comma is Shift+slash.
+        ru_comma {
+            bindings = <&kp LS(SLASH)>;
+            key-positions = <1 2>;
+            layers = <1>;
+            timeout-ms = <20>;
+            require-prior-idle-ms = <50>;
+        };
+
+        ru_dot {
+            bindings = <&kp SLASH>;
+            key-positions = <2 3>;
+            layers = <1>;
+            timeout-ms = <20>;
+            require-prior-idle-ms = <50>;
         };
     };
 
@@ -1322,21 +1493,51 @@
 
             label = "YOULL";
         };
+
+        tsya: tsya {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <10>;
+            bindings = <&kp N &kp M &kp C &kp Z>;
+        };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
+        // ---- Previous base layer (kept for reference, not compiled) ----
+        // It uses the OLD layer numbers (nav=1, numbers=2, symbols=3, mouse=4). To go back to it,
+        // uncomment it as layer_0, move the two layers below up/down accordingly and renumber.
+        // layer_0 {
+        //     bindings = <
+        // &ak_x      &ak_g      &ak_m      &ak_p            &ak_j        &kp APOS     &ak_ae       &kp COMMA    &kp DOT  &kp MINUS
+        // &ak_hml_s  &ak_hml_c  &ak_hml_n  &ak_hml_t        &ak_k        &ak_aa       &ak_hmr_a    &ak_hmr_e  &ak_hmr_i  &ak_hmr_h
+        // &ak_w      &ak_f      &ak_l      &ak_d            &ak_v        &ak_oe       &ak_u        &ak_o      &ak_y      &ak_b
+        //                          &lt 2 BACKSPACE  &lt_r 1 R    &lt 3 SPACE  &lt 4 ENTER
+        //     >;
+        // };
+
+        // Hands Down Promethium (base layer)
         layer_0 {
             bindings = <
-&ak_x      &ak_g      &ak_m      &ak_p            &ak_j        &kp APOS     &ak_ae       &kp COMMA    &kp DOT  &kp MINUS
-&ak_hml_s  &ak_hml_c  &ak_hml_n  &ak_hml_t        &ak_k        &ak_aa       &ak_hmr_a    &ak_hmr_e  &ak_hmr_i  &ak_hmr_h
-&ak_w      &ak_f      &ak_l      &ak_d            &ak_v        &ak_oe       &ak_u        &ak_o      &ak_y      &ak_b
-                                 &lt 2 BACKSPACE  &lt_r 1 R    &lt 3 SPACE  &lt 4 ENTER
+                &ak_v      &ak_w       &ak_g       &ak_m            &ak_j        &kp APOS     &ak_ae       &ak_oe     &kp DOT    &ak_aa
+                &ak_hml_s  &ak_hml_np  &ak_hml_tp  &ak_hml_h        &ak_k        &ak_comma    &ak_hmr_a    &ak_hmr_e  &ak_hmr_i  &ak_hmr_c
+                &ak_f      &ak_p       &ak_d       &ak_l            &ak_x        &kp MINUS    &ak_u        &ak_o      &ak_y      &ak_b
+                                                   &lt 3 BACKSPACE  &lt_r 2 R    &lt 4 SPACE  &lt 5 ENTER
             >;
         };
 
+        // Russian (Sowa) - toggled with the russian_toggle combo
         layer_1 {
+            bindings = <
+                &kp APOS         &kp S        &kp Q                &kp SEMI           &kp A      &kp O        &kp X              &kp H                 &kp G        &kp COMMA
+                &hml LEFT_GUI B  &hml LALT J  &hml LEFT_CONTROL F  &hml LEFT_SHIFT P  &kp I      &kp LBKT     &hmr LEFT_SHIFT D  &hmr RIGHT_CONTROL Y  &hmr LALT N  &hmr LEFT_GUI R
+                &kp E            &kp Z        &linger RBKT M       &kp C              &kp DOT    &kp W        &kp V              &kp K                 &kp U        &kp L
+                                                                   &lt_sk 3 LSHFT     &lt 2 T    &lt 4 SPACE  &lt 5 ENTER
+            >;
+        };
+
+        layer_2 {
             bindings = <
 &kp LA(NUMBER_6)  &kp LA(NUMBER_7)  &kp LA(N8)        &kp LA(N9)        &kp LA(N0)          &kp HOME            &kp PAGE_UP     &kp UP_ARROW    &kp PAGE_DOWN  &kp END
 &kp LA(NUMBER_1)  &kp LA(NUMBER_2)  &kp LA(NUMBER_3)  &kp LA(NUMBER_4)  &kp LA(NUMBER_5)    &kp LC(LEFT_ARROW)  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT      &kp LC(RIGHT_ARROW)
@@ -1344,8 +1545,7 @@
                                                       &trans            &trans              &kp LC(LS(TAB))     &kp LC(TAB)
             >;
         };
-
-        layer_2 {
+        layer_3 {
             bindings = <
 &kp F11  &kp F12  &trans  &trans  &kp PRINTSCREEN    &kp SLASH  &kp N7        &kp N8        &kp N9        &kp PLUS
 &kp F6   &kp F7   &kp F8  &kp F9  &kp F10            &kp ASTRK  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp EQUAL
@@ -1353,8 +1553,7 @@
                           &trans  &trans             &kp N0     &trans
             >;
         };
-
-        layer_3 {
+        layer_4 {
             bindings = <
 &bt BT_CLR_ALL  &bt BT_CLR    &trans        &trans        &trans          &kp LESS_THAN   &kp ASTRK         &kp HASH   &kp PERCENT        &kp GREATER_THAN
 &trans          &trans        &trans        &trans        &trans          &kp LEFT_BRACE  &kp LEFT_BRACKET  &kp PIPE   &kp RIGHT_BRACKET  &kp RIGHT_BRACE
@@ -1362,8 +1561,7 @@
                                             &trans        &trans          &trans          &trans
             >;
         };
-
-        layer_4 {
+        layer_5 {
             bindings = <
 &trans  &trans    &mkp MB3   &trans     &trans      &trans          &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN   &trans
 &trans  &mkp MB4  &mkp RCLK  &mkp LCLK  &mkp MB5    &msc SCRL_LEFT  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_RIGHT
@@ -1371,8 +1569,7 @@
                              &trans     &trans      &trans          &trans
             >;
         };
-
-        layer_5 {
+        layer_6 {
             bindings = <
 &bt BT_PRV    &trans        &trans        &bt BT_CLR    &bt BT_CLR_ALL    &kp C_BRIGHTNESS_DEC  &kp C_BRI_INC     &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp K_MUTE
 &bt BT_PRV    &bt BT_NXT    &trans        &trans        &trans            &kp C_PREVIOUS        &kp C_PLAY_PAUSE  &kp C_NEXT         &trans           &trans
@@ -1380,8 +1577,7 @@
                                           &trans        &trans            &trans                &trans
             >;
         };
-
-        layer_6 {
+        layer_7 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
@@ -1389,8 +1585,7 @@
                         &trans  &trans    &trans  &trans
             >;
         };
-
-        layer_7 {
+        layer_8 {
             bindings = <
 &studio_unlock  &studio_unlock  &trans  &trans  &bt BT_CLR_ALL    &trans  &trans  &trans  &trans  &studio_unlock
 &sys_reset      &trans          &trans  &trans  &trans            &trans  &trans  &trans  &trans  &sys_reset
@@ -1400,19 +1595,19 @@
         };
     };
 
-    // Layer 1 (RIGHT) + Layer 2 (LEFT) at the same time -> Layer 7 (TRI)
+    // Layer 2 (nav, RIGHT) + Layer 3 (numbers, LEFT) at the same time -> Layer 8 (TRI)
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
         tri_layer {
-            if-layers = <1 2>;
-            then-layer = <7>;
+            if-layers = <2 3>;
+            then-layer = <8>;
         };
 
         funf {
-            if-layers = <2 4>;
-            then-layer = <5>;
+            if-layers = <3 5>;
+            then-layer = <6>;
         };
     };
 };
